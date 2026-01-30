@@ -49,7 +49,6 @@ export class ProjectList implements OnInit {
   }
 
   createNewProj() {
-    alert('שלב 1: הפונקציה התחילה!');
 
     if (!this.currentTeamId) {
       alert('עצור! 🛑 לא ניתן ליצור פרויקט בנתיב הכללי. אנא כנסי לצוות ספציפי דרך דף הצוותים.');
@@ -69,14 +68,12 @@ export class ProjectList implements OnInit {
 
     this.projectsService.addProject(this.currentTeamId, nameVal, descVal).subscribe({
       next: (res) => {
-        alert('✅ הצלחה! הפרויקט נוצר בצוות ' + this.currentTeamId);
         this.isCreateOpen.set(false);
         this.nameControl.reset();
         this.descControl.reset();
         this.projectsService.loadProjects(); 
       },
       error: (err) => {
-        alert('❌ שגיאה ביצירה. בדקי את הקונסול.');
         console.error('פרטי השגיאה:', err);
       }
     });
@@ -88,7 +85,9 @@ export class ProjectList implements OnInit {
     if (confirm('בטוחה שאת רוצה למחוק את הפרויקט?')) {
       this.projectsService.deleteProject(projectId).subscribe({
         next: () => console.log('Project deleted'),
-        error: (err) => alert('שגיאה במחיקה')
+        error: (err) => {
+          console.error('Error deleting project:', err);
+        }
       });
     }
   }
