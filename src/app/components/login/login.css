@@ -1,0 +1,144 @@
+/* קונטיינר ראשי - מרכוז ורקע רך */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  padding: 20px;
+  direction: rtl;
+}
+
+h2 {
+  color: #2d3748;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.auth-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* הכרטיס הלבן */
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: -20px; /* מחבר את הכרטיס לטופס */
+  position: relative;
+  z-index: 2;
+}
+
+/* טאבים מודרניים */
+.auth-tabs {
+  display: flex;
+  background: #edf2f7;
+  padding: 6px;
+  margin: 15px;
+  border-radius: 12px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  color: #718096;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.active-tab {
+  background: white;
+  color: #4a90e2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* הטופס עצמו */
+form {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 30px 30px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* עיצוב האינפוטים */
+input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* כפתור התחברות */
+button {
+  width: 100%;
+  padding: 14px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover:not(:disabled) {
+  background: #357abd;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+}
+
+/* טקסט תחתון */
+p {
+  text-align: center;
+  margin-top: 25px;
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+p a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
