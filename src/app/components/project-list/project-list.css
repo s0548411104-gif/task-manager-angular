@@ -1,212 +1,374 @@
-/* קונטיינר ראשי */
+/* Project List Page CSS */
+
 .page-container {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
   direction: rtl;
-  font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
-/* כותרת הדף */
 .Project-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
-  border-bottom: 2px solid #edf2f7;
-  padding-bottom: 20px;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .Project-header h1 {
-  font-size: 2.2rem;
-  color: #2d3748;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin: 0;
 }
 
 .current-team-indicator {
-  background: #ebf8ff;
-  color: #2b6cb0;
-  padding: 8px 16px;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 0.9rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* כפתור הוספה (העיגול) */
 .circle-btn {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #4a90e2;
-  color: white;
+  background: #ffffff;
+  color: #667eea;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .circle-btn:hover {
-  transform: rotate(90deg) scale(1.1);
-  background: #357abd;
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* תיבת יצירת פרויקט חדש */
+.circle-btn:active {
+  transform: scale(0.95);
+}
+
 .create-team-box {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  margin-bottom: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  border: 1px solid #e2e8f0;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.create-team-box small {
+  color: #6c757d;
+  font-size: 0.9rem;
 }
 
 .create-team-box input {
-  padding: 12px;
-  border: 2px solid #edf2f7;
-  border-radius: 8px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
   font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.create-team-box input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .create-team-box button {
-  background: #48bb78;
-  color: white;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
   border: none;
-  font-weight: 700;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  align-self: flex-start;
 }
 
-/* הגריד של הפרויקטים */
+.create-team-box button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.create-team-box button:disabled {
+  background: linear-gradient(135deg, #adb5bd 0%, #6c757d 100%);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+main.project-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main.project-grid > p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 40px;
+}
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-/* כרטיס פרויקט */
 .project-card {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  border: 1px solid #f0f0f0;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
-}
-
-.card-header h3 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #1a202c;
-  font-weight: 700;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .id-tag {
-  font-size: 0.7rem;
-  background: #f7fafc;
-  color: #a0aec0;
-  padding: 2px 8px;
-  border-radius: 4px;
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  align-self: flex-start;
 }
 
-.desc {
-  color: #718096;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 20px;
-  flex-grow: 1;
+.card-header h3 {
+  color: #2d3748;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  word-break: break-word;
 }
 
-/* כפתורי עריכה ומחיקה */
 .header-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-.edit-btn, .delete-btn {
-  background: transparent;
-  border: none;
+.edit-btn,
+.delete-btn {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 1.1rem;
-  padding: 5px;
-  border-radius: 6px;
-  transition: background 0.2s;
+  transition: all 0.3s ease;
 }
 
-.edit-btn:hover { background: #f0fff4; }
-.delete-btn:hover { background: #fff5f5; }
+.edit-btn:hover {
+  background: #fff3cd;
+  border-color: #ffc107;
+  transform: scale(1.1);
+}
 
-/* מצב עריכה בתוך הכרטיס */
+.delete-btn:hover {
+  background: #f8d7da;
+  border-color: #dc3545;
+  transform: scale(1.1);
+}
+
 .edit-mode-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 100%;
 }
 
 .edit-input {
   width: 100%;
-  padding: 8px;
-  border: 2px solid #4a90e2;
-  border-radius: 6px;
+  padding: 10px 12px;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f8f9fa;
+}
+
+.edit-input:focus {
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .edit-btns {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
-/* כפתור כניסה למשימות */
+.save-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.save-btn {
+  background: #28a745;
+  color: #ffffff;
+}
+
+.save-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.cancel-btn:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+.desc {
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 40px;
+}
+
 .enter-btn {
   width: 100%;
-  padding: 12px;
-  background: #f7fafc;
-  color: #4a90e2;
-  border: 2px solid #4a90e2;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
   border-radius: 10px;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  margin-top: auto;
 }
 
 .enter-btn:hover {
-  background: #4a90e2;
-  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
-/* באג' צוות בתחתית */
 .team-badge {
-  margin-top: 15px;
-  font-size: 0.8rem;
-  color: #cbd5e0;
-  text-align: left;
+  background: #e9ecef;
+  color: #495057;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 600;
 }
 
-/* אנימציית כניסה */
-.slide-in {
-  animation: slideDown 0.4s ease-out;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 20px 15px;
+  }
+
+  .Project-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .Project-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .circle-btn {
+    align-self: center;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .create-team-box {
+    padding: 20px;
+  }
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 480px) {
+  .Project-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .circle-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
 }

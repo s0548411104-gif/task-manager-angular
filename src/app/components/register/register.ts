@@ -25,8 +25,6 @@ export class Register {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: () => {
-          // ההרשמה הצליחה! ה-Service כבר שמר את הטוקן.
-          // נעביר את המשתמש לדף הצוותים
           this.router.navigate(['/teams']);
         },
         error: (err) => {
