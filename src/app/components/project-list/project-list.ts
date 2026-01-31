@@ -56,7 +56,6 @@ export class ProjectList implements OnInit {
       return;
     }
     
-    alert('שלב 2: שולח בקשה ליצירה בצוות מספר: ' + this.currentTeamId);
 
     if (this.nameControl.invalid) {
       alert('עצור! 🛑 שם הפרויקט קצר מדי.');
