@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withHashLocation } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
 
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideRouter(routes, withHashLocation()),
     // איחוד הקריאות ל-HttpClient - חשוב מאוד!
     provideHttpClient(withInterceptors([authInterceptor])), 
     provideAnimations() 
